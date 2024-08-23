@@ -33,6 +33,7 @@ body {
   align-items: center;
   color: #87ceeb;
   transition: all 0.5s;
+  background-color:  #000;
   transform: translateY(-100%);
 }
 
