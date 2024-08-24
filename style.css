@@ -38,4 +38,18 @@ img {
   align-items: center;
   margin: auto;
   margin-bottom: 15px;
+  opacity: 0;
+  animation: bee 5.5s infinite;
+}
+
+@keyframes bee {
+  0% {
+    opacity: 0;
+  }
+  33% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
