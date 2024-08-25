@@ -2,6 +2,7 @@
   "name": "three-journey-part-1",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build"
@@ -13,5 +14,8 @@
   "dependencies": {
     "three": "^0.167.1",
     "vite": "^5.4.2"
+  },
+  "devDependencies": {
+    "vite-plugin-restart": "^0.4.1"
   }
 }
