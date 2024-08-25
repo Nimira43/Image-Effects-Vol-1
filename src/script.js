@@ -3,29 +3,51 @@ import './style.css'
 
 const canvas = document.querySelector('canvas.webgl')
 const scene = new THREE.Scene()
-const geometry = new THREE.BoxGeometry(1, 1, 1)
-const material = new THREE.MeshBasicMaterial({
-  color: 0xff4500,
-})
 
-const mesh = new THREE.Mesh(geometry, material)
-scene.add(mesh)
+const group = new THREE.Group()
+scene.add(group)
 
-// mesh.position.x = -2
-// mesh.position.y = 1
-// mesh.position.z = -5
+const cube1 = new THREE.Mesh(
+  new THREE.BoxGeometry(1, 1, 1),
+  new THREE.MeshBasicMaterial({
+    color: 0xff4500
+  })
+)
+group.add(cube1)
+cube1.position.x = -1
+cube1.position.y = 1.25
+cube1.position.z = -3
+cube1.rotation.x = -1.5
+cube1.rotation.y = 2.75
+cube1.rotation.z = -5.75
 
-mesh.position.set(0.4, 1, -1.3)
-// mesh.scale.x = 2
-// mesh.scale.y = 0.5
-// mesh.scale.z = 0.5
-mesh.scale.set(0.4, 1, -1.3)
+const cube2 = new THREE.Mesh(
+  new THREE.BoxGeometry(1, 1, 1),
+  new THREE.MeshBasicMaterial({
+    color: 0x87ceeb
+  })
+)
+group.add(cube2)
+cube2.position.x = -1.5
+cube2.position.y = -1.5
+cube2.position.z = -1.5
+cube2.rotation.x = 1.5
+cube2.rotation.y = -1.75
+cube2.rotation.z = -0.75
 
-mesh.rotation.reorder('ZXY')
-mesh.rotation.x = Math.PI * 0.75
-mesh.rotation.y = Math.PI * 0.75
-mesh.rotation.z = Math.PI * -0.25
-// mesh.rotation.set(0.4, 1, -1.3)
+const cube3 = new THREE.Mesh(
+  new THREE.BoxGeometry(1, 1, 1),
+  new THREE.MeshBasicMaterial({
+    color: 0xccff88
+  })
+)
+group.add(cube3)
+cube3.position.x = 1
+cube3.position.y = 1
+cube3.position.z = 1
+cube3.rotation.x = -1.5
+cube3.rotation.y = 1.75
+cube3.rotation.z = -2.75
 
 const axesHelper = new THREE.AxesHelper()
 scene.add(axesHelper)
@@ -37,10 +59,8 @@ const sizes = {
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height)
 
 camera.position.z = 3
-camera.position.y = -0.51
-camera.position.x = -1
+
 scene.add(camera)
-camera.lookAt(mesh.position)
 
 const renderer = new THREE.WebGLRenderer({
   canvas: canvas
