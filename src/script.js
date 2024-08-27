@@ -26,14 +26,10 @@ const renderer = new THREE.WebGLRenderer({
 
 renderer.setSize(sizes.width, sizes.height)
 
-const clock = new THREE.Clock()
+gsap.to(mesh.position, { duration: 1, delay: 1, x: 2 })
+gsap.to(mesh.position, { duration: 1, delay: 2, x: 0 })
 
 const tick = () => {
-  
-  const elapsedTime = clock.getElapsedTime()
-
-  mesh.rotation.x = elapsedTime * Math.PI * 2
-
   renderer.render(scene, camera)
   window.requestAnimationFrame(tick)
 }
